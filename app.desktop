@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=IntelliJ IDEA
+Name=IntelliJ IDEA Community Edition
 Exec=idea %f
 Icon=Idea
 Comment=The IDE for Java and Kotlin enthusiasts
