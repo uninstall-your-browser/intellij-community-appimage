@@ -8,4 +8,4 @@ Comment=The IDE for Java and Kotlin enthusiasts
 Categories=Development;IDE;
 Terminal=false
 StartupNotify=true
-StartupWMClass=jetbrains-idea
+StartupWMClass=jetbrains-idea-ce
