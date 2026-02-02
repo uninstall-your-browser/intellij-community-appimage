@@ -1,0 +1,4 @@
+[submodule "update_checker"]
+	path = update_checker
+	url = https://github.com/uninstall-your-browser/jetbrains-appimage-helper.git
+	branch = master

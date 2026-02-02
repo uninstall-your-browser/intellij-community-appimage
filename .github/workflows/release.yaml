@@ -1,0 +1,48 @@
+name: Build AppImage
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+  push:
+    branches:
+      - "master"
+
+jobs:
+  version:
+    name: Intellij AppImage
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - run: git submodule update --remote
+      - run: mv update_checker/* .
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Check for update
+        id: check_update
+        run: uv run python check_update.py
+        env:
+            PRODUCT_RELEASE_PREFIX: "idea"
+            GH_TOKEN: ${{ github.token }}
+      - name: Build
+        if: ${{ steps.check_update.outputs.needs_update == 'true' }}
+        id: build
+        uses: uninstall-your-browser/appimage-bash@master
+        with:
+          version_url: "${{ steps.check_update.outputs.download_url }}"
+          version_check: false
+          version_file: "product-info.json"
+          version_bash: "jq -r  .version"
+          version_icon: "idea.svg"
+          version_directory: "opt/idea"
+      - name: Create release
+        if: ${{ steps.check_update.outputs.needs_update == 'true' }}
+        run: gh release create ${{ env.APP_VERSION }} -t "${{ env.APP_NAME }} AppImage ${{ env.APP_VERSION }}" -n "Automatically created release"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Upload binaries
+        if: ${{ steps.check_update.outputs.needs_update == 'true' }}
+        run: gh release upload ${{ env.APP_VERSION }} dist/* --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
