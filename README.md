@@ -4,12 +4,8 @@ This is unofficial. I am not affiliated with jetbrains.
 
 Find the appimage in the [releases page](https://github.com/uninstall-your-browser/intellij-community-appimage/releases).
 
-# What is the difference between the "community edition" and the "unified" version?
+# What is the difference between the "community" and the "unified" version?
 
-> Previously, there were two versions available for download - IntelliJ IDEA Community and IntelliJ IDEA Ultimate - with a clear and honest comparison between them.
-Later, the download page started offering IntelliJ IDEA Ultimate by default, and finding IntelliJ IDEA Community required literally scrutinizing the page with a magnifying glass.
-Now the download page features a trimmed-down version of IDEA Ultimate that has simply been renamed. - [youtrack](https://youtrack.jetbrains.com/issue/IJPL-222323/Green-Start-Free-Trial-button-cannot-be-removed.-Visual-distraction.#focus=Comments-27-13242013.0-0)
-
-For a free user, the biggest difference is the absense of the [green "start free trial" button](https://youtrack.jetbrains.com/issue/IJPL-222323/Green-Start-Free-Trial-button-cannot-be-removed.-Visual-distraction.) in the community edition.
+Previously, jetbrains had 2 versions of IDEA/Pycharm - "community" and "ultimate". Recently, they have taken the ultimate edition, and renamed it to the "unified" edition, promoting it as the freemium version of the IDEs. On their website, they have made it very difficult to download the community edition, but it is still available on their [github](https://github.com/JetBrains/intellij-community/). The unified version includes propriatery components, such as the AI assistant and also includes nags such as the green "start free trial" button which is intentionally not hideable.
 
 For the "unified" version, see https://github.com/uninstall-your-browser/intellij-appimage
